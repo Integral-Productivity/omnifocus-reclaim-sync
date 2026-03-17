@@ -13,7 +13,11 @@
       "WebFetch(domain:reclaim.ai)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:omni-automation.com)"
+      "WebFetch(domain:omni-automation.com)",
+      "Bash(wc -l /Users/kraigparkinson/GitHub/omnifocus-reclaim-sync/omnifocus-reclaim-sync.omnifocusjs/Resources/*.js)",
+      "Bash(grep -n \"^var lib = PlugIn.find\" /Users/kraigparkinson/GitHub/omnifocus-reclaim-sync/omnifocus-reclaim-sync.omnifocusjs/Resources/*.js)",
+      "Bash(grep -rn \"^var _creds = new Credentials\" /Users/kraigparkinson/GitHub/omnifocus-reclaim-sync/omnifocus-reclaim-sync.omnifocusjs/Resources/*.js)",
+      "Bash(grep -n \"PlugIn.find.*library\" /Users/kraigparkinson/GitHub/omnifocus-reclaim-sync/omnifocus-reclaim-sync.omnifocusjs/Resources/*.js)"
     ]
   }
 }

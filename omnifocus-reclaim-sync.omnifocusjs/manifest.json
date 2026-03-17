@@ -72,5 +72,6 @@
       "mediumLabel": "Sync Selected",
       "paletteLabel": "Sync Selected"
     }
-  ]
+  ],
+  "libraries": [{ "identifier":  "reclaimLib" }]
 }
