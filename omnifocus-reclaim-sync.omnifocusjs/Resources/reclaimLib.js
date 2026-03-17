@@ -140,6 +140,17 @@
     return _getChildTagNameOf(task, getRootTag().tagNamed(TAG_PRIORITY));
   }
 
+  // Returns a unified task array from a selection that may contain both tasks
+  // and projects.  When a Project is selected OmniFocus puts it in
+  // selection.projects (not selection.tasks); its root task is project.task.
+  function getSelectedTasks(selection) {
+    var tasks = selection.tasks.slice();
+    if (selection.projects) {
+      selection.projects.forEach(function (p) { tasks.push(p.task); });
+    }
+    return tasks;
+  }
+
   // Returns all non-dropped tasks tagged with 'Reclaim : Sync'.
   // Uses syncTag.tasks (the tag's own task list) rather than scanning flattenedTasks.
   function getAllSyncTasks() {
@@ -505,6 +516,7 @@
   lib.getScheduleSchemeFromTags = getScheduleSchemeFromTags;
   lib.getPriorityFromTags       = getPriorityFromTags;
   lib.schemeTitle               = schemeTitle;
+  lib.getSelectedTasks           = getSelectedTasks;
   lib.getAllSyncTasks            = getAllSyncTasks;
 
   // Preferences

@@ -14,7 +14,7 @@
     var lib = null;
     try {
       lib = PlugIn.find('com.kraigparkinson.omnifocus-reclaim-sync').library('reclaimLib');
-      var tasks = selection.tasks;
+      var tasks = lib.getSelectedTasks(selection);
 
       // Read the ID map once — avoids N+1 Preferences reads.
       var idMap      = lib.readIdMap();
@@ -87,7 +87,7 @@
   });
 
   action.validate = function (selection, sender) {
-    return selection.tasks.length > 0;
+    return selection.tasks.length > 0 || selection.projects.length > 0;
   };
 
   return action;

@@ -14,15 +14,16 @@
       var root       = lib.getRootTag();
       var syncTag    = lib.getOrCreateChildTag(lib.TAG_SYNC,     root);
       var splitUpTag = lib.getOrCreateChildTag(lib.TAG_SPLIT_UP, root);
+      var tasks      = lib.getSelectedTasks(selection);
       var tagged     = 0;
 
-      selection.tasks.forEach(function (task) {
+      tasks.forEach(function (task) {
         if (!lib.hasTag(task, syncTag))    { task.addTag(syncTag); }
         if (!lib.hasTag(task, splitUpTag)) { task.addTag(splitUpTag); tagged++; }
       });
 
       var autoSync = lib.getAutoSync();
-      var skipped  = selection.tasks.length - tagged;
+      var skipped  = tasks.length - tagged;
       var msg      = lib.taskWord(tagged) + ' allowed to split up in Reclaim.';
       if (skipped > 0) {
         msg += '\n' + skipped + (skipped === 1 ? ' task was' : ' tasks were') + ' already set to split up.';
@@ -38,7 +39,7 @@
   });
 
   action.validate = function (selection, sender) {
-    return selection.tasks.length > 0;
+    return selection.tasks.length > 0 || selection.projects.length > 0;
   };
 
   return action;

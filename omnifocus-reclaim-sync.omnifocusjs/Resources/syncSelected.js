@@ -15,7 +15,7 @@
       lib = PlugIn.find('com.kraigparkinson.omnifocus-reclaim-sync').library('reclaimLib');
 
       var apiKey = await lib.requireApiKey(_creds);
-      var tasks  = selection.tasks.filter(function (t) { return !t.dropped; });
+      var tasks  = lib.getSelectedTasks(selection).filter(function (t) { return !t.dropped; });
 
       // quietSync is set by other actions before delegating here — suppress start notification.
       var quietSync = lib.isQuietSync();
@@ -57,7 +57,7 @@
   });
 
   action.validate = function (selection, sender) {
-    return selection.tasks.length > 0;
+    return selection.tasks.length > 0 || selection.projects.length > 0;
   };
 
   return action;

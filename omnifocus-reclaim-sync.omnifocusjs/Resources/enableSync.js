@@ -11,13 +11,14 @@
       lib = PlugIn.find('com.kraigparkinson.omnifocus-reclaim-sync').library('reclaimLib');
       var root    = lib.getRootTag();
       var syncTag = lib.getOrCreateChildTag(lib.TAG_SYNC, root);
+      var tasks   = lib.getSelectedTasks(selection);
       var tagged  = 0;
 
-      selection.tasks.forEach(function (task) {
+      tasks.forEach(function (task) {
         if (!lib.hasTag(task, syncTag)) { task.addTag(syncTag); tagged++; }
       });
 
-      var skipped = selection.tasks.length - tagged;
+      var skipped = tasks.length - tagged;
       var msg = lib.taskWord(tagged) + ' tagged for Reclaim sync.';
       if (skipped > 0) {
         msg += '\n' + skipped + (skipped === 1 ? ' task was' : ' tasks were') + ' already tagged.';
@@ -32,7 +33,7 @@
   });
 
   action.validate = function (selection, sender) {
-    return selection.tasks.length > 0;
+    return selection.tasks.length > 0 || selection.projects.length > 0;
   };
 
   return action;

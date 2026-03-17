@@ -35,7 +35,8 @@
       // Build parallel arrays for Form.Field.Option.
       var schemeIdStrs = schemes.map(function (s) { return String(s.id); });
       var schemeNames  = schemes.map(function (s) { return lib.schemeTitle(s); });
-      var taskWord     = selection.tasks.length === 1 ? 'this task' : 'these tasks';
+      var tasks        = lib.getSelectedTasks(selection);
+      var taskWord     = tasks.length === 1 ? 'this task' : 'these tasks';
 
       var form = new Form();
       form.addField(new Form.Field.Option('scheme', 'Scheduling Hours', schemeIdStrs, schemeNames, schemeIdStrs[0]));
@@ -51,13 +52,13 @@
       var hoursRoot = lib.getOrCreateChildTag(lib.TAG_HOURS, root);
       var hoursTag  = lib.getOrCreateChildTag(selectedName,  hoursRoot);
 
-      selection.tasks.forEach(function (task) {
+      tasks.forEach(function (task) {
         if (!lib.hasTag(task, syncTag)) { task.addTag(syncTag); }
         lib.removeHoursTags(task);
         task.addTag(hoursTag);
       });
 
-      var count    = selection.tasks.length;
+      var count    = tasks.length;
       var autoSync = lib.getAutoSync();
       var msg      = lib.taskWord(count) +
         ' set to schedule in \u201c' + selectedName + '\u201d.' +
@@ -72,7 +73,7 @@
   });
 
   action.validate = function (selection, sender) {
-    return selection.tasks.length > 0;
+    return selection.tasks.length > 0 || selection.projects.length > 0;
   };
 
   return action;

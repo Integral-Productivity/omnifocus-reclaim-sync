@@ -10,7 +10,8 @@
     var lib = null;
     try {
       lib = PlugIn.find('com.kraigparkinson.omnifocus-reclaim-sync').library('reclaimLib');
-      var taskWord = selection.tasks.length === 1 ? 'this task' : 'these tasks';
+      var tasks    = lib.getSelectedTasks(selection);
+      var taskWord = tasks.length === 1 ? 'this task' : 'these tasks';
 
       var form = new Form();
       form.addField(new Form.Field.Option(
@@ -36,13 +37,13 @@
       var priorityRoot = lib.getOrCreateChildTag(lib.TAG_PRIORITY, root);
       var priorityTag  = lib.getOrCreateChildTag(selectedLabel, priorityRoot);
 
-      selection.tasks.forEach(function (task) {
+      tasks.forEach(function (task) {
         if (!lib.hasTag(task, syncTag)) { task.addTag(syncTag); }
         lib.removePriorityTags(task);
         task.addTag(priorityTag);
       });
 
-      var count    = selection.tasks.length;
+      var count    = tasks.length;
       var autoSync = lib.getAutoSync();
       var msg      = lib.taskWord(count) +
         ' set to \u201c' + selectedLabel + '\u201d.' +
@@ -57,7 +58,7 @@
   });
 
   action.validate = function (selection, sender) {
-    return selection.tasks.length > 0;
+    return selection.tasks.length > 0 || selection.projects.length > 0;
   };
 
   return action;
