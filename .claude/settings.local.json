@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv enable-sync.js enableSync.js)",
+      "Bash(mv send-to-up-next.js sendToUpNext.js)",
+      "Bash(mv set-hours.js setHours.js)",
+      "Bash(mv disable-sync.js disableSync.js)",
+      "Bash(mv sync-all.js syncAll.js)",
+      "Bash(mv sync-selected.js syncSelected.js)",
+      "Bash(grep -n \"flattenedTags.byName\" /Users/kraigparkinson/GitHub/omnifocus-reclaim-sync/omnifocus-reclaim-sync.omnifocusjs/Resources/*.js)",
+      "WebFetch(domain:api.app.reclaim.ai)",
+      "WebSearch",
+      "WebFetch(domain:reclaim.ai)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:omni-automation.com)"
+    ]
+  }
+}

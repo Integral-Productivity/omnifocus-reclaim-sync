@@ -1,0 +1,76 @@
+{
+  "type": "com.omnigroup.omnifocus3.action",
+  "defaultLocale": "en",
+  "identifier": "com.kraigparkinson.omnifocus-reclaim-sync",
+  "version": "1.0",
+  "description": "Bidirectional synchronization between OmniFocus and Reclaim.ai",
+  "label": "Reclaim Sync",
+  "mediumLabel": "Reclaim Sync",
+  "paletteLabel": "Reclaim",
+  "author": "Kraig Parkinson",
+  "actions": [
+    {
+      "identifier": "configure",
+      "script": "configure.js",
+      "label": "Configure Reclaim Sync",
+      "mediumLabel": "Configure",
+      "paletteLabel": "Configure"
+    },
+    {
+      "identifier": "enableSync",
+      "script": "enableSync.js",
+      "label": "Enable Reclaim Sync",
+      "mediumLabel": "Enable Sync",
+      "paletteLabel": "Enable Sync"
+    },
+    {
+      "identifier": "sendToUpNext",
+      "script": "sendToUpNext.js",
+      "label": "Send to Reclaim Up Next",
+      "mediumLabel": "Up Next",
+      "paletteLabel": "Up Next"
+    },
+    {
+      "identifier": "splitUp",
+      "script": "splitUp.js",
+      "label": "Allow Reclaim to Split Up Task",
+      "mediumLabel": "Split Up",
+      "paletteLabel": "Split Up"
+    },
+    {
+      "identifier": "setPriority",
+      "script": "setPriority.js",
+      "label": "Set Reclaim Priority",
+      "mediumLabel": "Set Priority",
+      "paletteLabel": "Set Priority"
+    },
+    {
+      "identifier": "setHours",
+      "script": "setHours.js",
+      "label": "Set Reclaim Hours",
+      "mediumLabel": "Set Hours",
+      "paletteLabel": "Set Hours"
+    },
+    {
+      "identifier": "disableSync",
+      "script": "disableSync.js",
+      "label": "Disable Reclaim Sync",
+      "mediumLabel": "Disable Sync",
+      "paletteLabel": "Disable Sync"
+    },
+    {
+      "identifier": "syncAll",
+      "script": "syncAll.js",
+      "label": "Sync All with Reclaim",
+      "mediumLabel": "Sync All",
+      "paletteLabel": "Sync All"
+    },
+    {
+      "identifier": "syncSelected",
+      "script": "syncSelected.js",
+      "label": "Sync Selected with Reclaim",
+      "mediumLabel": "Sync Selected",
+      "paletteLabel": "Sync Selected"
+    }
+  ]
+}
