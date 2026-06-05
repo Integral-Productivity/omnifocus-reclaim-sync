@@ -334,12 +334,16 @@
     payload.due         = task.dueDate   ? task.dueDate.toISOString()   : null;
     payload.snoozeUntil = task.deferDate ? task.deferDate.toISOString() : null;
 
-    // Duration from OmniFocus estimated minutes.
+    // Duration: OmniFocus estimated minutes → Reclaim time chunks (1 chunk = 15 min).
+    // timeChunksRequired, minChunkSize, and maxChunkSize are all in 15-minute units.
     var mins = task.estimatedMinutes || null;
     if (mins) {
-      payload.duration     = mins;
-      payload.minChunkSize = Math.min(30, mins);
-      payload.maxChunkSize = mins;
+      // Round to whole chunks (min 1) — the API stores integer chunks, so a
+      // fractional value would be truncated and drift back on the reverse sync.
+      var chunks = Math.max(1, Math.round(mins / 15));
+      payload.timeChunksRequired = chunks;
+      payload.minChunkSize       = Math.min(2, chunks); // cap minimum chunk at 2 chunks (30 min)
+      payload.maxChunkSize       = chunks;
     }
 
     // Resolve child tag references once — each tagNamed() traverses root's children.
@@ -395,13 +399,17 @@
     if (reclaimTask) {
       writeReclaimUrl(task, String(reclaimTask.id));
 
-      // Bidirectional date sync: Reclaim → OmniFocus.
-      // Use 'in' guard to distinguish null (clear date) from absent (don't touch).
+      // Bidirectional sync: Reclaim → OmniFocus.
+      // Use 'in' guard to distinguish null (clear value) from absent (don't touch).
       if ('due' in reclaimTask) {
         task.dueDate   = reclaimTask.due        ? new Date(reclaimTask.due)        : null;
       }
       if ('snoozeUntil' in reclaimTask) {
         task.deferDate = reclaimTask.snoozeUntil ? new Date(reclaimTask.snoozeUntil) : null;
+      }
+      // Duration: Reclaim time chunks (1 chunk = 15 min) → OmniFocus minutes.
+      if ('timeChunksRequired' in reclaimTask && reclaimTask.timeChunksRequired != null) {
+        task.estimatedMinutes = Math.round(reclaimTask.timeChunksRequired * 15);
       }
     }
 
