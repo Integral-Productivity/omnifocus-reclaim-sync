@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Local Reclaim MCP session state (per-session, not part of the plugin)
+.claude/.reclaim-session.json
