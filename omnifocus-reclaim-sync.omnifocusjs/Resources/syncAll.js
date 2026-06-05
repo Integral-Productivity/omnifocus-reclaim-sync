@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * syncAll.js — "Sync All with Reclaim"
  * Bidirectional sync for every OmniFocus task tagged "Reclaim : Sync".
  */

@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * setPriority.js — "Set Reclaim Priority"
  * Presents a picker of Reclaim's four priority levels and tags selected tasks
  * with "Reclaim : Priority : [P1–P4]" so the sync payload carries the right value.

@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * setHours.js — "Set Reclaim Hours"
  * Fetches the user's available scheduling hour types from Reclaim.ai and tags
  * selected tasks with "Reclaim : Hours : [scheme name]" (e.g. Working Hours).

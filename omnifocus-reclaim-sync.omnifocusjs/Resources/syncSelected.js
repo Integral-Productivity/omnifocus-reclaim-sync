@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * syncSelected.js — "Sync Selected with Reclaim"
  * Bidirectional sync for the currently selected OmniFocus tasks.
  */

@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * disableSync.js — "Disable Reclaim Sync"
  * Removes all "Reclaim : *" tags and clears stored Reclaim IDs.
  * If auto-sync is enabled, also deletes the tasks from Reclaim.ai.

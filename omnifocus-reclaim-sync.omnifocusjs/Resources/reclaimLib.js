@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * reclaimLib.js — Shared library for OmniFocus ↔ Reclaim.ai sync plugin
  *
  * Load INSIDE the action perform function (not at the script top level):
