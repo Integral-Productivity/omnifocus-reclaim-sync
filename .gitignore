@@ -3,3 +3,6 @@
 
 # Local Reclaim MCP session state (per-session, not part of the plugin)
 .claude/.reclaim-session.json
+
+# Plugin support for compound engineering with Claude
+.compound-engineering/*.local.yaml
