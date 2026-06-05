@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * splitUp.js — "Allow Reclaim to Split Up Task"
  * Tags selected tasks with "Reclaim : Sync" and "Reclaim : Split Up",
  * setting splitUp:true in Reclaim so the scheduler can break the task

@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * sendToUpNext.js — "Send to Reclaim Up Next"
  * Tags selected tasks with "Reclaim : Sync" and "Reclaim : Up Next".
  */

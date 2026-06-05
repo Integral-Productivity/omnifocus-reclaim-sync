@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * enableSync.js — "Enable Reclaim Sync"
  * Tags selected tasks with "Reclaim : Sync".
  */

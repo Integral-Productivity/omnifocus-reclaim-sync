@@ -1,4 +1,5 @@
 /*
+ * SPDX-License-Identifier: MIT
  * configure.js — "Configure Reclaim Sync"
  * Saves the Reclaim.ai API key to the macOS Keychain and manages plugin settings.
  */

@@ -160,4 +160,8 @@ Created by Kraig Parkinson
 
 ## License
 
-See license file for details.
+Released under the [MIT License](LICENSE) — Copyright (c) 2026 Integral Productivity LLC.
+
+You're free to use, modify, and distribute this plugin, including for commercial
+purposes, provided the copyright notice and license text are retained. The
+software is provided "as is", without warranty of any kind.
