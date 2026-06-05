@@ -6,6 +6,8 @@ Bidirectional synchronization between OmniFocus and [Reclaim.ai](https://reclaim
 
 This OmniFocus plugin enables seamless integration with Reclaim.ai's AI-powered calendar assistant. Sync your OmniFocus tasks to Reclaim, where they can be automatically scheduled based on your availability, priorities, and work hours preferences.
 
+> **Why this exists:** OmniFocus owns *what* needs doing but can't defend *when* — so planned work never gets calendar time. This plugin keeps OmniFocus as the single source of truth and uses Reclaim purely as a scheduling engine. For the full rationale, target user, and where the project is investing, see [STRATEGY.md](STRATEGY.md).
+
 ## Features
 
 ### Task Synchronization
